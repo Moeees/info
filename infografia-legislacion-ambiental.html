@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legislación Ambiental - Infografía</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .icon-leaf {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .icon-scale {
+            background: #dbeafe;
+            color: #2563eb;
+        }
+
+        .main-title {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            padding: 20px;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-header.green {
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+        }
+
+        .card-header.blue {
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+        }
+
+        .card-header.purple {
+            background: linear-gradient(135deg, #9333ea, #a855f7);
+        }
+
+        .card-header.red {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+        }
+
+        .card-content {
+            padding: 30px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .principle-card {
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .principle-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .principle-icon.blue { background: #3b82f6; }
+        .principle-icon.green { background: #22c55e; }
+        .principle-icon.purple { background: #a855f7; }
+        .principle-icon.orange { background: #f97316; }
+
+        .principle-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #1f2937;
+        }
+
+        .principle-text {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 15px;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .badge-blue { background: #dbeafe; color: #1e40af; }
+        .badge-cyan { background: #cffafe; color: #0891b2; }
+        .badge-amber { background: #fef3c7; color: #d97706; }
+        .badge-green { background: #dcfce7; color: #166534; }
+        .badge-purple { background: #f3e8ff; color: #7c3aed; }
+
+        .regulation-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9fafb;
+            border-radius: 10px;
+        }
+
+        .instrument-item {
+            border-left: 4px solid;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .instrument-item.green { border-color: #22c55e; }
+        .instrument-item.blue { border-color: #3b82f6; }
+        .instrument-item.purple { border-color: #a855f7; }
+        .instrument-item.orange { border-color: #f97316; }
+
+        .instrument-title {
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .instrument-text {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .international-item {
+            text-align: center;
+        }
+
+        .international-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .international-icon.green { background: #dcfce7; color: #16a34a; }
+        .international-icon.blue { background: #dbeafe; color: #2563eb; }
+        .international-icon.purple { background: #f3e8ff; color: #9333ea; }
+
+        .challenge-list {
+            list-style: none;
+        }
+
+        .challenge-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            background: #f9fafb;
+        }
+
+        .bullet {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+
+        .bullet-red { background: #ef4444; }
+        .bullet-green { background: #22c55e; }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 2px solid #e5e7eb;
+            margin-top: 50px;
+        }
+
+        .footer-text {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 15px;
+        }
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+
+        .footer-leaf {
+            color: #16a34a;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .regulation-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-icons">
+                <div class="icon icon-leaf">🌿</div>
+                <div class="icon icon-scale">⚖️</div>
+            </div>
+            <h1 class="main-title">Legislación Ambiental</h1>
+            <p class="subtitle">Marco jurídico para la protección del medio ambiente y el desarrollo sostenible</p>
+        </div>
+
+        <!-- What is Environmental Legislation -->
+        <div class="section">
+            <div class="card">
+                <div class="card-header green">
+                    📚 ¿Qué es la Legislación Ambiental?
+                </div>
+                <div class="card-content">
+                    <p style="font-size: 1.1rem; color: #374151;">
+                        La legislación ambiental es el conjunto de normas jurídicas que regulan las actividades humanas para
+                        prevenir, controlar y remediar los impactos negativos sobre el medio ambiente, garantizando un equilibrio
+                        entre el desarrollo económico y la conservación de los recursos naturales.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Principles -->
+        <div class="section">
+            <div class="grid grid-4">
+                <div class="principle-card">
+                    <div class="principle-icon blue">🛡️</div>
+                    <div class="principle-title">Principio Preventivo</div>
+                    <div class="principle-text">
+                        Prevenir el daño ambiental antes de que ocurra mediante regulaciones y controles.
+                    </div>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-icon green">👥</div>
+                    <div class="principle-title">Participación Ciudadana</div>
+                    <div class="principle-text">
+                        Involucrar a la sociedad en la toma de decisiones ambientales.
+                    </div>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-icon purple">🌍</div>
+                    <div class="principle-title">Desarrollo Sostenible</div>
+                    <div class="principle-text">
+                        Satisfacer necesidades actuales sin comprometer las futuras generaciones.
+                    </div>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-icon orange">⚖️</div>
+                    <div class="principle-title">Quien Contamina Paga</div>
+                    <div class="principle-text">
+                        Responsabilidad económica por los daños ambientales causados.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Areas -->
+        <div class="section">
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-header blue">
+                        🏭 Áreas de Regulación
+                    </div>
+                    <div class="card-content">
+                        <div class="regulation-item">
+                            <span class="badge badge-blue">Aire</span>
+                            <span>Control de emisiones y calidad del aire</span>
+                        </div>
+                        <div class="regulation-item">
+                            <span class="badge badge-cyan">Agua</span>
+                            <span>Protección de recursos hídricos</span>
+                        </div>
+                        <div class="regulation-item">
+                            <span class="badge badge-amber">Suelo</span>
+                            <span>Prevención de contaminación del suelo</span>
+                        </div>
+                        <div class="regulation-item">
+                            <span class="badge badge-green">Biodiversidad</span>
+                            <span>Conservación de especies y ecosistemas</span>
+                        </div>
+                        <div class="regulation-item">
+                            <span class="badge badge-purple">Residuos</span>
+                            <span>Gestión integral de residuos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header green">
+                        ♻️ Instrumentos Legales
+                    </div>
+                    <div class="card-content">
+                        <div class="instrument-item green">
+                            <div class="instrument-title">Evaluación de Impacto Ambiental</div>
+                            <div class="instrument-text">Análisis previo de proyectos</div>
+                        </div>
+                        <div class="instrument-item blue">
+                            <div class="instrument-title">Licencias Ambientales</div>
+                            <div class="instrument-text">Permisos para actividades industriales</div>
+                        </div>
+                        <div class="instrument-item purple">
+                            <div class="instrument-title">Normas de Calidad</div>
+                            <div class="instrument-text">Estándares ambientales obligatorios</div>
+                        </div>
+                        <div class="instrument-item orange">
+                            <div class="instrument-title">Sanciones</div>
+                            <div class="instrument-text">Multas y penalizaciones por incumplimiento</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- International Framework -->
+        <div class="section">
+            <div class="card">
+                <div class="card-header purple">
+                    🌍 Marco Internacional
+                </div>
+                <div class="card-content">
+                    <div class="grid grid-3">
+                        <div class="international-item">
+                            <div class="international-icon green">🌿</div>
+                            <h4 style="font-weight: bold; margin-bottom: 10px;">Acuerdo de París</h4>
+                            <p style="font-size: 0.9rem; color: #6b7280;">Cambio climático y reducción de emisiones</p>
+                        </div>
+                        <div class="international-item">
+                            <div class="international-icon blue">🌍</div>
+                            <h4 style="font-weight: bold; margin-bottom: 10px;">Convenio de Biodiversidad</h4>
+                            <p style="font-size: 0.9rem; color: #6b7280;">Conservación de la diversidad biológica</p>
+                        </div>
+                        <div class="international-item">
+                            <div class="international-icon purple">♻️</div>
+                            <h4 style="font-weight: bold; margin-bottom: 10px;">Protocolo de Montreal</h4>
+                            <p style="font-size: 0.9rem; color: #6b7280;">Protección de la capa de ozono</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Challenges and Future -->
+        <div class="section">
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-header red">
+                        ⚠️ Desafíos Actuales
+                    </div>
+                    <div class="card-content">
+                        <ul class="challenge-list">
+                            <li class="challenge-item">
+                                <div class="bullet bullet-red"></div>
+                                <span>Cambio climático acelerado</span>
+                            </li>
+                            <li class="challenge-item">
+                                <div class="bullet bullet-red"></div>
+                                <span>Pérdida de biodiversidad</span>
+                            </li>
+                            <li class="challenge-item">
+                                <div class="bullet bullet-red"></div>
+                                <span>Contaminación plástica</span>
+                            </li>
+                            <li class="challenge-item">
+                                <div class="bullet bullet-red"></div>
+                                <span>Escasez de recursos hídricos</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header green">
+                        🚀 Tendencias Futuras
+                    </div>
+                    <div class="card-content">
+                        <ul class="challenge-list">
+                            <li class="challenge-item">
+                                <div class="bullet bullet-green"></div>
+                                <span>Economía circular</span>
+                            </li>
+                            <li class="challenge-item">
+                                <div class="bullet bullet-green"></div>
+                                <span>Energías renovables</span>
+                            </li>
+                            <li class="challenge-item">
+                                <div class="bullet bullet-green"></div>
+                                <span>Tecnologías limpias</span>
+                            </li>
+                            <li class="challenge-item">
+                                <div class="bullet bullet-green"></div>
+                                <span>Gobernanza ambiental digital</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p class="footer-text">
+                La legislación ambiental es fundamental para garantizar un futuro sostenible
+            </p>
+            <div class="footer-icons">
+                <span class="footer-leaf">🌿</span>
+                <span>Protegiendo nuestro planeta para las futuras generaciones</span>
+                <span class="footer-leaf">🌿</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
